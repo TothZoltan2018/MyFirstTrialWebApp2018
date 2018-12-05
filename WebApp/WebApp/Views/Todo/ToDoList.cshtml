@@ -1,0 +1,32 @@
+﻿@model List<WebApp.Models.TodoItem>
+@{
+   ViewBag.Title = "My ToDoList";
+}
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<h4>ToDoList gyakorló feladat</h4>
+<h4>Bevásárlólista</h4>
+
+<ol>
+    @foreach (var todoItem in Model)
+    {
+        if (todoItem.Done)
+        {
+            <li><strike>@todoItem.Name</strike></li>
+        }
+        else
+        {
+            <li>@todoItem.Name</li>
+        }
+    }
+</ol>
+
+@*mindeket megoldas ugyanoda visz, a masodik a beepitett ASP.NET
+    szolgaltatas, nem kell megadni a Controllert, mert tudja, hol vagyunk.*@
+@*Ezek a megjegyzesek nem latszanak a bongeszoben view source eseten*@
+<a href="/Todo/Create">Uj cikk felvitele</a>
+@Html.ActionLink("Uj cikk felvitele", "Create")
+
+
